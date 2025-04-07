@@ -2,7 +2,7 @@
 
 Welcome to **Lucifer AI** – a powerful, sleek, and fully animated chatbot website built with ❤️ using HTML, CSS, and JavaScript. No OpenAI key needed – this is fully local and user-focused with tons of features!
 
-🔗 **Live Demo:** [[https://your-website-link.com](https://your-website-link.com](https://luciferofx.github.io/LuciferChat/))
+🔗 **Live Demo:** [https://luciferofx.github.io/LuciferChat/]
 
 ---
 
