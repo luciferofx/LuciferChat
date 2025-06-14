@@ -4,6 +4,12 @@
 
 This project aims to create a centralized communication platform similar to Discord, with real-time messaging, server management, and robust security features. We will be using Firebase for authentication.
 
+```
+ must install npm on this project
+
+npm install 
+```
+
 ## Technical Implementation Plan
 
 ### 1. Database Schema Design
