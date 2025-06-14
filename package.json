@@ -1,0 +1,32 @@
+{
+  "name": "decentralized-communication-platform",
+  "version": "1.0.0",
+  "description": "A decentralized communication platform similar to Discord.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase": "^9.0.0",
+    "pg": "^8.16.0",
+    "sequelize": "^6.37.7",
+    "socket.io": "^4.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "keywords": [
+    "decentralized",
+    "communication",
+    "platform",
+    "discord",
+    "ipfs",
+    "firebase",
+    "smart contracts"
+  ],
+  "author": "AI Assistant",
+  "type": "module",
+  "license": "MIT"
+}

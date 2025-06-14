@@ -1,4 +1,241 @@
-<script>
-  document.write(unescape('%3C%21DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22en%22%3E%0A%3Chead%3E%0A%20%20%3Cmeta%20charset%3D%22UTF-8%22%20/%3E%0A%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1.0%22/%3E%0A%20%20%3Ctitle%3ELucifer%20AI%20Chat%3C/title%3E%0A%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22style.css%22%20/%3E%0A%3C/head%3E%0A%3Cbody%3E%0A%20%20%3C%21--%20Preloader%20--%3E%0A%20%20%3Cdiv%20id%3D%22preloader%22%3E%0A%20%20%20%20%3Cdiv%20class%3D%22loader-text%22%3E%u26A1%20Loading%20Lucifer%20AI...%3C/div%3E%0A%20%20%3C/div%3E%0A%20%20%3Clabel%20class%3D%22theme-toggle%22%3E%0A%20%20%20%0A%20%20%3C/label%3E%0A%20%20%0A%20%0A%0A%20%20%3C%21--%20Chat%20Container%20--%3E%0A%20%20%3Cdiv%20class%3D%22chat-container%22%3E%0A%20%20%20%20%3Ch2%3ELucifer%20AI%20Chat%3C/h2%3E%0A%20%20%20%20%3Cdiv%20id%3D%22chat-box%22%20class%3D%22chat-box%22%3E%3C/div%3E%0A%0A%20%20%20%20%3Cdiv%20class%3D%22input-container%22%3E%0A%20%20%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22user-input%22%20placeholder%3D%22Type%20or%20use%20mic...%22%20/%3E%0A%20%20%20%20%20%20%3Cinput%20type%3D%22file%22%20id%3D%22media-input%22%20accept%3D%22image/*%2Cvideo/*%22%20/%3E%0A%20%20%20%20%20%20%3Cbutton%20onclick%3D%22sendMessage%28%29%22%3ESend%3C/button%3E%0A%20%20%20%20%20%20%3Cbutton%20onclick%3D%22startVoice%28%29%22%3E%uD83C%uDFA4%3C/button%3E%0A%20%20%20%20%3C/div%3E%0A%20%20%3C/div%3E%0A%0A%20%20%3C%21--%20Menu%20Bar%20--%3E%0A%20%20%3Cdiv%20class%3D%22menu-bar%22%3E%0A%20%20%20%20%3Cbutton%20onclick%3D%22clearChat%28%29%22%3E%uD83E%uDDF9%3C/button%3E%0A%20%20%20%20%3Cbutton%20onclick%3D%22toggleTheme%28%29%22%3E%uD83C%uDF19%3C/button%3E%0A%20%20%20%20%3Cinput%20type%3D%22checkbox%22%20id%3D%22theme-switch%22%20/%3E%0A%20%20%20%20%3Cbutton%20onclick%3D%22logout%28%29%22%3E%uD83D%uDEAA%3C/button%3E%0A%20%20%3C/div%3E%0A%0A%20%20%3Cscript%20src%3D%22script.js%22%3E%3C/script%3E%0A%3C/body%3E%0A%3C/html%3E%0A'));
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Decentralized Communication Platform</title>
+ <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    #registerForm, #loginForm {
+      width: 300px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #registerForm input, #loginForm input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    #registerForm button, #loginForm button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #registerForm button:hover, #loginForm button:hover {
+      background-color: #0056b3;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 20px auto;
+      padding: 0;
+      width: 80%;
+    }
+
+    #messages li {
+      padding: 10px;
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    #messages li:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    #messageForm {
+      width: 80%;
+      margin: 20px auto;
+      display: flex;
+    }
+
+    #messageForm input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #messageForm button {
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #messageForm button:hover {
+      background-color: #1e7e34;
+    }
+  </style>
+</head>
+<body>
+  <h1>Decentralized Communication Platform</h1>
+
+  <h2>Register</h2>
+  <form id="registerForm">
+    <input type="email" id="registerEmail" placeholder="Email" required>
+    <input type="password" id="registerPassword" placeholder="Password" required>
+    <button type="submit">Register</button>
+  </form>
+
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input type="email" id="loginEmail" placeholder="Email" required>
+    <input type="password" id="loginPassword" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+
+  <h2>Create Server</h2>
+  <form id="createServerForm">
+    <input type="text" id="serverName" placeholder="Server Name" required>
+    <input type="text" id="serverDescription" placeholder="Server Description">
+    <button type="submit">Create Server</button>
+  </form>
+
+  <h2>Chat</h2>
+  <ul id="messages"></ul>
+  <form id="messageForm">
+    <input id="messageInput" autocomplete="off" /><button>Send</button>
+  </form>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    let socket = null;
+    let token = null;
+
+    const messages = document.getElementById('messages');
+    const form = document.getElementById('messageForm');
+    const input = document.getElementById('messageInput');
+    const registerForm = document.getElementById('registerForm');
+    const loginForm = document.getElementById('loginForm');
+    const createServerForm = document.getElementById('createServerForm');
+    const registerEmail = document.getElementById('registerEmail');
+    const registerPassword = document.getElementById('registerPassword');
+    const loginEmail = document.getElementById('loginEmail');
+    const loginPassword = document.getElementById('loginPassword');
+    const serverName = document.getElementById('serverName');
+    const serverDescription = document.getElementById('serverDescription');
+
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = registerEmail.value;
+      const password = registerPassword.value;
+
+      try {
+        const response = await fetch('/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        if (response.ok) {
+          alert('Registration successful!');
+        } else {
+          alert('Registration failed.');
+        }
+      } catch (error) {
+        console.error('Error registering:', error);
+        alert('Registration failed.');
+      }
+    });
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = loginEmail.value;
+      const password = loginPassword.value;
+
+      try {
+        const response = await fetch('/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          token = data.token;
+          alert('Login successful!');
+          socket = io({ auth: { token: token } });
+
+          socket.on('new-message', (message) => {
+            const item = document.createElement('li');
+            item.textContent = message;
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+          });
+
+
+        } else {
+          alert('Login failed.');
+        }
+      } catch (error) {
+        console.error('Error logging in:', error);
+        alert('Login failed.');
+      }
+    });
+
+    createServerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = serverName.value;
+      const description = serverDescription.value;
+
+      try {
+        const response = await fetch('/servers', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Include the token
+          },
+          body: JSON.stringify({ name, description })
+        });
+
+        if (response.ok) {
+          alert('Server created successfully!');
+        } else {
+          alert('Server creation failed.');
+        }
+      } catch (error) {
+        console.error('Error creating server:', error);
+        alert('Server creation failed.');
+      }
+    });
+
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (input.value && token) {
+        socket.emit('new-message', input.value);
+        input.value = '';
+      } else {
+        alert('Please login to send messages.');
+      }
+    });
   </script>
-  
+</body>
+</html>
